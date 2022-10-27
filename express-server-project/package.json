@@ -1,0 +1,25 @@
+{
+  "name": "express-server-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "express": "^4.18.2",
+    "express-jwt": "^7.7.5",
+    "express-winston": "^4.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.20",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon": "nodemon"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
