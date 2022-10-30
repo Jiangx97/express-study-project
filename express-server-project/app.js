@@ -23,6 +23,7 @@ app.use(require('./middle-ware/global').jwtValidMiddleWare)
 
 app.use(require('./routes/login'))
 app.use(require('./routes/admin'))
+app.use(require('./routes/customer'))
 
 // 错误的日志记录则需放在最后
 app.use(require('./config/winston').errorLogger)

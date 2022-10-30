@@ -1,6 +1,8 @@
 <template>
   <div>
     <h1>ADMIN HOME</h1>
+
+    <router-link to="/customer/query">用户管理</router-link>
   </div>
 </template>
 
