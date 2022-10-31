@@ -15,7 +15,7 @@
           </el-form-item>
 
           <el-form-item label="密码" prop="pwd">
-            <el-input v-model="form.pwd" type="password" />
+            <el-input v-model="form.pwd" type="password" show-password />
           </el-form-item>
 
           <el-form-item label="角色" prop="role">
@@ -70,7 +70,7 @@ export default defineComponent({
 
     const loginHandler = () => {
       console.log(form);
-      loginForm.value.validate((valid, fields) => {
+      loginForm.value.validate((valid: any, fields: any) => {
         if (valid) {
           login(form)
             .then((res: any) => {
