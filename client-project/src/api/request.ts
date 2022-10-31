@@ -5,6 +5,8 @@
 
 import axios from "axios";
 import { ElMessage } from "element-plus";
+import router from "../router";
+
 axios.defaults.baseURL = "http://localhost:8082";
 axios.defaults.timeout = 60000;
 
@@ -14,7 +16,7 @@ axios.interceptors.request.use((config) => {
     // 登录接口无需token
   } else {
     const token = sessionStorage.getItem("token");
-    if (token) {
+    if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
     }
   }
@@ -26,6 +28,16 @@ axios.interceptors.response.use(
   (res) => {
     // 后端返回的状态码非0，则为异常
     if (res.data.statusCode !== 0) {
+      // token 失效时返回登录页面
+      if (res.data.statusCode === 401) {
+        ElMessage({
+          showClose: true,
+          message: res.data.message,
+          type: "error",
+        });
+        router.push("/login");
+        return Promise.reject(res);
+      }
       ElMessage({
         showClose: true,
         message: res.data.message,
